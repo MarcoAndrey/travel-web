@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <!-- Favicons -->
+
+    <link href="assets/img/favicon.png" rel="Marco Andrey Diseñador Grafico">
+    <link href="assets/img/logo.png" rel="icon">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/style-ligtbox.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+
+
+    <title>Gallery</title>
+</head>
+
+<body>
+
+    <!-- images -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="gallery-title">Travel Agency</h2>
+
+                    <ul class="box-container three-cols">
+
+                        <li class="box">
+                            <div class="inner">
+                                <a href="assets/img/travel-18.jpg" class="glightbox3">
+                                    <img src="assets/img/travel-18.jpg" alt="image" />
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="box">
+                            <div class="inner">
+                                <a href="assets/img/travel-20.jpg" class="glightbox3">
+                                    <img src="assets/img/travel-20.jpg" alt="image" />
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="box">
+                            <div class="inner">
+                                <a href="assets/img/travel-22.1.jpg" class="glightbox3">
+                                    <img src="assets/img/travel-22.jpg" alt="image" />
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="box">
+                            <div class="inner">
+                                <a href="assets/img/travel-23.jpg" class="glightbox3">
+                                    <img src="assets/img/travel-23.jpg" alt="image" />
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="box">
+                            <div class="inner">
+                                <a href="assets/img/travel-25.1.jpg" class="glightbox3">
+                                    <img src="assets/img/travel-25.jpg" alt="image" />
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="box">
+                            <div class="inner">
+                                <a href="assets/img/travel-27.jpg" class="glightbox3">
+                                    <img src="assets/img/travel-27.jpg" alt="image" />
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="box">
+                            <div class="inner">
+                                <a href="assets/img/travel-28.jpg" class="glightbox3">
+                                    <img src="assets/img/travel-28.jpg" alt="image" />
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="box">
+                            <div class="inner">
+                                <a href="assets/img/travel-24.jpg" class="glightbox3">
+                                    <img src="assets/img/travel-24.jpg" alt="image" />
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="box">
+                            <div class="inner">
+                                <a href="assets/img/travel-21.jpg" class="glightbox3">
+                                    <img src="assets/img/travel-21.jpg" alt="image" />
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="box">
+                            <div class="inner">
+                                <a href="assets/img/travel-26.1.jpg" class="glightbox3">
+                                    <img src="assets/img/travel-26.jpg" alt="image" />
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 gallery-info">
+                    <h3> Móviles - Web</h3>
+                    <ul>
+                        <li><strong>Category </strong>: Web</li>
+                        <li><strong>Client </strong>: Uga Turismo</li>
+                        <li><strong>Project</strong>: 2018 - 2020</li>
+                        <li><strong>Software : Photoshop </strong></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="credits">
+        Design by Marco Andrey <a href="#">Graphic Designer</a>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+    <script src="assets/js/valde.min.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/site.js"></script>
+    <script>
+        var lightbox = GLightbox();
+        lightbox.on('open', (target) => {
+            console.log('lightbox opened');
+        });
+
+        var lightboxVideo = GLightbox({
+            selector: '.glightbox3'
+        });
+        lightboxVideo.on('slide_changed', ({
+            prev,
+            current
+        }) => {
+            console.log('Prev slide', prev);
+            console.log('Current slide', current);
+
+            const {
+                slideIndex,
+                slideNode,
+                slideConfig,
+                player
+            } = current;
+
+            if (player) {
+                if (!player.ready) {
+                    // If player is not ready
+                    player.on('ready', (event) => {
+                        // Do something when video is ready
+                    });
+                }
+
+                player.on('play', (event) => {
+                    console.log('Started play');
+                });
+
+                player.on('volumechange', (event) => {
+                    console.log('Volume change');
+                });
+
+                player.on('ended', (event) => {
+                    console.log('Video ended');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
